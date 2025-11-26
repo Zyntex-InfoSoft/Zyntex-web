@@ -140,6 +140,8 @@ body {
   justify-content: space-between;
   padding: 0.85rem 1.25rem;
   gap: 1.25rem;
+  height: 70px;
+  overflow: hidden;
 }
 
 .logo {
@@ -148,9 +150,10 @@ body {
   gap: 0.7rem;
 }
 .logo-img {
-  width: 110px;
-  height: auto;
+  width: auto;
+  height: 120px;
   border-radius: 8px;
+  object-fit: contain;
 }
 .logo-mark {
   display: inline-flex;
