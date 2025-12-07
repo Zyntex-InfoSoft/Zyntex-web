@@ -24,7 +24,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
+  margin: 1;
   padding: 0;
 }
 
@@ -335,7 +335,7 @@ body::before {
 
 .hero-content {
   position: relative;
-  padding: 8rem 1.25rem 4.6rem;
+  padding: 6rem 1.25rem 4.6rem;
   text-align: center;
 }
 
@@ -796,4 +796,7 @@ body::before {
   .section {
     padding: 3.4rem 0;
   }
+}
+#bg-video {
+  transition: opacity s ease;
 }
