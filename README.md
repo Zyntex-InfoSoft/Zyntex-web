@@ -1,2 +1,7 @@
-# Zyntex-web
-This Repository is about Zyntexinfosoft main website ....
+echo "# Devlopment" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/vaibhav2807-len/Devlopment.git
+git push -u origin main
