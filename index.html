@@ -41,24 +41,113 @@
     <!-- Hero -->
     <section id="home" class="hero">
       <div class="hero-bg">
-        <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00d5ff"/>
-              <stop offset="100%" stop-color="#020515"/>
-            </linearGradient>
-          </defs>
+        <svg width="100%" height="100%" viewBox="0 0 1366 768" xmlns="http://www.w3.org/2000/svg">
 
-          <path id="wave" fill="url(#grad)" opacity="0.35">
-            <animate attributeName="d" dur="10s" repeatCount="indefinite"
-              values="
-              M0,300 Q360,200 720,300 T1440,300 V600 H0 Z;
-              M0,300 Q360,350 720,300 T1440,350 V600 H0 Z;
-              M0,300 Q360,200 720,300 T1440,300 V600 H0 Z
-              "
-            />
-          </path>
-        </svg>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="50%" stop-color="#02091b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+
+  <!-- DATA FLOWING LINES -->
+  <g stroke="#38bdf8" stroke-width="1.5" opacity="0.4">
+    <line x1="0" y1="200" x2="1366" y2="200">
+      <animate attributeName="stroke-dasharray" values="0,2000;2000,0" dur="6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="400" x2="1366" y2="400" stroke="#22c55e">
+      <animate attributeName="stroke-dasharray" values="2000,0;0,2000" dur="8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="600" x2="1366" y2="600" stroke="#f97316">
+      <animate attributeName="stroke-dasharray" values="0,1600;1600,0" dur="10s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- SERVER RACKS -->
+  <g filter="url(#glow)">
+    <!-- Left Server -->
+    <rect x="120" y="200" width="90" height="320" rx="12" fill="#0f172a" stroke="#38bdf8"/>
+    <line x1="130" y1="240" x2="200" y2="240" stroke="#22c55e" />
+    <line x1="130" y1="280" x2="200" y2="280" stroke="#22c55e" />
+    <line x1="130" y1="320" x2="200" y2="320" stroke="#22c55e" />
+    <line x1="130" y1="360" x2="200" y2="360" stroke="#f97316" />
+
+    <!-- Right Server -->
+    <rect x="1150" y="200" width="90" height="320" rx="12" fill="#0f172a" stroke="#22c55e"/>
+    <line x1="1160" y1="240" x2="1230" y2="240" stroke="#38bdf8" />
+    <line x1="1160" y1="280" x2="1230" y2="280" stroke="#38bdf8" />
+    <line x1="1160" y1="320" x2="1230" y2="320" stroke="#38bdf8" />
+    <line x1="1160" y1="360" x2="1230" y2="360" stroke="#f97316" />
+  </g>
+
+  <!-- CENTER CORE -->
+  <g filter="url(#glow)">
+    <circle cx="683" cy="350" r="120" stroke="#38bdf8" stroke-width="2" fill="none"/>
+
+    <polygon points="683,210 770,270 770,390 683,450 596,390 596,270"
+             fill="none" stroke="#22c55e" stroke-width="2">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 683 350"
+        to="360 683 350"
+        dur="18s"
+        repeatCount="indefinite"/>
+    </polygon>
+
+    <!-- Pulse -->
+    <circle cx="683" cy="350" r="40" fill="#22c55e">
+      <animate attributeName="r" values="40;70;40" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- FAKE CODE LINES -->
+  <g opacity="0.7" fill="#38bdf8">
+    <rect x="430" y="550" width="250" height="6" rx="4">
+      <animate attributeName="width" values="200;300;200" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="460" y="580" width="220" height="6" rx="4" fill="#22c55e">
+      <animate attributeName="width" values="160;260;160" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="440" y="610" width="280" height="6" rx="4" fill="#f97316">
+      <animate attributeName="width" values="240;300;240" dur="5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ZYNTEX TEXT -->
+  <g filter="url(#glow)">
+    <text x="683" y="360"
+          text-anchor="middle"
+          font-size="60"
+          font-weight="700"
+          fill="#ffffff"
+          letter-spacing="10">
+      Z Y N T E X
+    </text>
+
+    <text x="683" y="400"
+          text-anchor="middle"
+          font-size="18"
+          fill="#38bdf8">
+      Cloud  •  AI  •  Cyber  •  DevOps
+    </text>
+  </g>
+
+</svg>
+
       </div>
       <div class="container hero-content">
         <!-- <div class="hero-icon-row">
