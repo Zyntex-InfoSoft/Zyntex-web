@@ -7,30 +7,28 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <!-- Header / Navbar -->
   <header class="site-header">
     <div class="container nav-container">
       <div class="logo">
-        <!-- <img src="logo.png" alt="" width="10%"> -->
-         <img src="logo1.jpg" class="logo-img"/>
-        <div class="logo-text">
-          <!-- <span class="logo-title">Zyntex</span> -->
-          <!-- <span class="logo-subtitle">Cloud & IT Services</span> -->
-        </div>
+        <img src="logo1.jpg" class="logo-img" alt="Zyntex Logo"/>
       </div>
 
       <!-- Mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="nav-toggle-label">
         <span></span>
+        <span></span>
+        <span></span>
       </label>
 
       <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <a href="#contact" class="btn btn-primary nav-cta">Get a demo</a>
@@ -38,173 +36,70 @@
   </header>
 
   <main>
+
     <!-- Hero -->
     <section id="home" class="hero">
-      <!-- <div class="hero-bg"> -->
-        <!-- <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00d5ff"/>
-              <stop offset="100%" stop-color="#020515"/>
-            </linearGradient>
-          </defs>
-
-          <path id="wave" fill="url(#grad)" opacity="0.35">
-            <animate attributeName="d" dur="10s" repeatCount="indefinite"
-              values="
-              M0,300 Q360,200 720,300 T1440,300 V600 H0 Z;
-              M0,300 Q360,350 720,300 T1440,350 V600 H0 Z;
-              M0,300 Q360,200 720,300 T1440,300 V600 H0 Z
-              "
-            />
-          </path>
-        </svg> -->
-      <!-- </div> -->
       <div class="container hero-content">
-        <!-- <div class="hero-icon-row">
-          <p class="hero-badge">Enterprise-grade cloud & infrastructure management</p>
-        </div> -->
+
         <h1 class="hero-title">
-          Monitor, secure & optimize your IT infrastructure in real-time.
+          Build, secure & scale your digital infrastructure with confidence.
         </h1>
 
         <p class="hero-subtitle">
-          Zyntex brings observability, automation and security together into one unified
-          platform so your team can focus on innovation instead of firefighting.
+          Zyntex helps businesses modernize their IT systems through secure cloud solutions,
+          automation, DevOps and real-time monitoring — so you can focus on growth, not firefighting.
         </p>
 
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get started</a>
-          <a href="#features" class="btn btn-outline">Learn more</a>
+          <a href="#contact" class="btn btn-primary btn-lg">Get started</a>
+          <a href="#features" class="btn btn-outline btn-lg">Learn more</a>
         </div>
 
         <div class="hero-stats-row">
           <div class="hero-stat">
-            <span class="hero-stat-number">N\A</span>
-            <span class="hero-stat-label">Uptime achieved</span>
+            <span class="hero-stat-number" data-count="99.9">0</span><span class="hero-stat-number">%</span>
+            <span class="hero-stat-label">Service reliability</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-number">3+</span>
-            <span class="hero-stat-label">Servers monitored</span>
+            <span class="hero-stat-number" data-count="10">0</span><span class="hero-stat-number">+</span>
+            <span class="hero-stat-label">Projects delivered</span>
           </div>
           <div class="hero-stat">
             <span class="hero-stat-number">24/7</span>
-            <span class="hero-stat-label">Global support</span>
+            <span class="hero-stat-label">Technical support</span>
           </div>
         </div>
+      </div>
+
+      <!-- Floating particles -->
+      <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
       </div>
     </section>
 
-    <!-- Stats / System health
-    <section class="section" aria-labelledby="stats-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="stats-heading">Infrastructure health at a glance</h2>
-          <p>Real-time service availability across your entire stack.</p>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>System Status</h3>
-            <p class="muted">
-              Key services monitored by Zyntex with live uptime and performance metrics.
-            </p>
-
-            <div class="status-list">
-              <div class="status-item">
-                <div class="status-label-row">
-                  <span>Cloud Services</span>
-                  <span class="status-value">10.0%</span>
-                </div>
-                <div class="status-bar">
-                  <div class="status-fill status-ok" style="width: 10.0%;"></div>
-                </div>
-              </div>
-
-              <div class="status-item">
-                <div class="status-label-row">
-                  <span>Network Infrastructure</span>
-                  <span class="status-value">0.2%</span>
-                </div>
-                <div class="status-bar">
-                  <div class="status-fill status-ok" style="width: 0.2%;"></div>
-                </div>
-              </div>
-
-              <div class="status-item">
-                <div class="status-label-row">
-                  <span>Security Systems</span>
-                  <span class="status-value">10.0%</span>
-                </div>
-                <div class="status-bar">
-                  <div class="status-fill status-warn" style="width: 10.0%;"></div>
-                </div>
-              </div>
-
-              <div class="status-item">
-                <div class="status-label-row">
-                  <span>Database Servers</span>
-                  <span class="status-value">10.0%</span>
-                </div>
-                <div class="status-bar">
-                  <div class="status-fill status-ok" style="width: 10.0%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Key Highlights</h3>
-            <ul class="feature-list">
-              <li>
-                <span class="dot dot-green"></span>
-                <div>
-                  <strong>Proactive monitoring</strong>
-                  <p class="muted">Detect issues before they impact your customers.</p>
-                </div>
-              </li>
-              <li>
-                <span class="dot dot-cyan"></span>
-                <div>
-                  <strong>Unified dashboard</strong>
-                  <p class="muted">One place for logs, metrics, alerts and incidents.</p>
-                </div>
-              </li>
-              <li>
-                <span class="dot dot-purple"></span>
-                <div>
-                  <strong>Security built-in</strong>
-                  <p class="muted">Hardened endpoints, access controls and compliance.</p>
-                </div>
-              </li>
-              <li>
-                <span class="dot dot-orange"></span>
-                <div>
-                  <strong>Automation ready</strong>
-                  <p class="muted">Trigger workflows based on thresholds and events.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- Services -->
-    <section id="services" class="section section-alt" aria-labelledby="services-heading">
+    <section id="services" class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <h2 id="services-heading">Our IT Services</h2>
-          <p>Comprehensive technology solutions tailored to your business needs.</p>
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">Modern IT solutions designed to keep your business secure, scalable and future-ready.</p>
         </div>
 
         <div class="grid grid-3">
+
           <article class="card service-card">
             <div class="icon-circle">💻</div>
             <h3>Web Development</h3>
             <p class="muted">
-              Design, develop and maintain modern, responsive, and high-performance websites
-              using the latest technologies.
+              High-performance, responsive and secure websites built using modern tech stacks and clean UI/UX standards.
             </p>
             <ul class="tag-list">
               <li>Frontend</li>
@@ -218,8 +113,7 @@
             <div class="icon-circle">🛡️</div>
             <h3>Cybersecurity</h3>
             <p class="muted">
-              Threat detection, vulnerability assessment and security operations to keep
-              your data safe.
+              Complete protection with threat monitoring, vulnerability assessments and security hardening for your systems.
             </p>
             <ul class="tag-list">
               <li>Security audits</li>
@@ -232,8 +126,7 @@
             <div class="icon-circle">🎨</div>
             <h3>UI / UX Design</h3>
             <p class="muted">
-              Craft intuitive, engaging and user-centered designs that improve usability
-              and elevate the overall digital experience.
+              Intuitive and visually engaging digital experiences crafted to improve user satisfaction and brand value.
             </p>
             <ul class="tag-list">
               <li>Wireframing</li>
@@ -247,13 +140,12 @@
             <div class="icon-circle">📊</div>
             <h3>Admin Dashboard</h3>
             <p class="muted">
-              Build powerful, secure and user-friendly admin panels to manage data, users
-              and system operations efficiently.
+              Powerful dashboards to manage users, analytics and operations with secure role-based access controls.
             </p>
             <ul class="tag-list">
               <li>User management</li>
               <li>Analytics</li>
-              <li>Role-based access</li>
+              <li>Roles & Access</li>
               <li>Reports</li>
             </ul>
           </article>
@@ -262,7 +154,7 @@
             <div class="icon-circle">⚙️</div>
             <h3>DevOps & Automation</h3>
             <p class="muted">
-              CI/CD pipelines, infrastructure-as-code and automation to deliver faster.
+              Automated CI/CD, infrastructure-as-code and cloud deployments to speed up development and reduce downtime.
             </p>
             <ul class="tag-list">
               <li>CI/CD</li>
@@ -271,45 +163,36 @@
             </ul>
           </article>
 
-          <!-- <article class="card service-card">
-            <div class="icon-circle">📊</div>
-            <h3>Analytics & Reporting</h3>
-            <p class="muted">
-              Dashboards and insights that make your infrastructure data easy to understand.
-            </p>
-            <ul class="tag-list">
-              <li>Dashboards</li>
-              <li>KPIs</li>
-              <li>Capacity planning</li>
-            </ul>
-          </article> -->
         </div>
       </div>
     </section>
 
-      <!-- Stats / System health -->
-    <section class="section" aria-labelledby="stats-heading">
+
+    <!-- System Health -->
+    <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2 id="stats-heading">Infrastructure health at a glance</h2>
-          <p>Real-time service availability across your entire stack.</p>
+          <h2 class="section-title">Infrastructure health at a glance</h2>
+          <p class="section-subtitle">Live insights into performance, uptime and system status — all in one view.</p>
         </div>
 
         <div class="grid grid-2">
+
           <div class="card">
             <h3>System Status</h3>
             <p class="muted">
-              Key services monitored by Zyntex with live uptime and performance metrics.
+              Real-time monitoring of cloud, network and security systems — helping you stay ahead of issues.
             </p>
 
             <div class="status-list">
+
               <div class="status-item">
                 <div class="status-label-row">
                   <span>Cloud Services</span>
                   <span class="status-value">10.0%</span>
                 </div>
                 <div class="status-bar">
-                  <div class="status-fill status-ok" style="width: 10.0%;"></div>
+                  <div class="status-fill status-ok" data-width="10.0%"></div>
                 </div>
               </div>
 
@@ -319,7 +202,7 @@
                   <span class="status-value">0.2%</span>
                 </div>
                 <div class="status-bar">
-                  <div class="status-fill status-ok" style="width: 0.2%;"></div>
+                  <div class="status-fill status-ok" data-width="0.2%"></div>
                 </div>
               </div>
 
@@ -329,7 +212,7 @@
                   <span class="status-value">10.0%</span>
                 </div>
                 <div class="status-bar">
-                  <div class="status-fill status-warn" style="width: 10.0%;"></div>
+                  <div class="status-fill status-warn" data-width="10.0%"></div>
                 </div>
               </div>
 
@@ -339,9 +222,10 @@
                   <span class="status-value">10.0%</span>
                 </div>
                 <div class="status-bar">
-                  <div class="status-fill status-ok" style="width: 10.0%;"></div>
+                  <div class="status-fill status-ok" data-width="10.0%"></div>
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -352,60 +236,65 @@
                 <span class="dot dot-green"></span>
                 <div>
                   <strong>Proactive monitoring</strong>
-                  <p class="muted">Detect issues before they impact your customers.</p>
+                  <p class="muted">Detect issues before they impact your business.</p>
                 </div>
               </li>
+
               <li>
                 <span class="dot dot-cyan"></span>
                 <div>
                   <strong>Unified dashboard</strong>
-                  <p class="muted">One place for logs, metrics, alerts and incidents.</p>
+                  <p class="muted">Metrics, logs and alerts in one place.</p>
                 </div>
               </li>
+
               <li>
                 <span class="dot dot-purple"></span>
                 <div>
                   <strong>Security built-in</strong>
-                  <p class="muted">Hardened endpoints, access controls and compliance.</p>
+                  <p class="muted">Encrypted data, access control and full audits.</p>
                 </div>
               </li>
+
               <li>
                 <span class="dot dot-orange"></span>
                 <div>
                   <strong>Automation ready</strong>
-                  <p class="muted">Trigger workflows based on thresholds and events.</p>
+                  <p class="muted">Trigger workflows and scale automatically.</p>
                 </div>
               </li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>
 
-     <!-- About -->
-    <section id="about" class="section section-alt" aria-labelledby="about-heading">
+
+    <!-- About -->
+    <section id="about" class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <h2 id="about-heading">About Zyntex</h2>
-          <p>
-            A dedicated team of engineers, architects and security specialists focused on reliable infrastructure.
+          <h2 class="section-title">About Zyntex</h2>
+          <p class="section-subtitle">
+            We are a team of engineers and security specialists delivering secure, scalable and reliable IT solutions.
           </p>
         </div>
 
         <div class="grid grid-2 about-grid">
+
           <div class="card">
             <h3>Our Mission</h3>
             <p class="muted">
-              We help businesses build, run and protect modern digital platforms without having to
-              maintain large in-house infrastructure teams.
+              Our mission is to help businesses deploy, manage and secure modern digital systems without the need for large internal teams.
             </p>
             <p class="muted">
-              From the first architecture diagram to production, we stay with you at every step.
+              From architecture to deployment — we stay with you at every step.
             </p>
             <ul class="bullet-list">
-              <li>Design cloud-native architectures that are resilient and secure.</li>
-              <li>Automate repetitive work so your team can ship features faster.</li>
-              <li>Provide clear visibility into performance and risk.</li>
+              <li>Cloud-native, scalable and secure architectures.</li>
+              <li>Automation that accelerates development cycles.</li>
+              <li>Visibility into performance, outages and risk.</li>
             </ul>
           </div>
 
@@ -414,144 +303,91 @@
             <ul class="value-list">
               <li>
                 <strong>Security first</strong>
-                <span class="muted">Your data and uptime are always the priority.</span>
+                <span class="muted">Your uptime and data always come first.</span>
               </li>
               <li>
                 <strong>Transparency</strong>
-                <span class="muted">Honest communication and clear reporting.</span>
+                <span class="muted">Clear communication, clear reporting.</span>
               </li>
               <li>
                 <strong>Innovation</strong>
-                <span class="muted">Adopting modern tools where they truly add value.</span>
+                <span class="muted">Modern tools that truly add value.</span>
               </li>
               <li>
                 <strong>Partnership</strong>
-                <span class="muted">We act as an extension of your engineering team.</span>
+                <span class="muted">We act as an extension of your team.</span>
               </li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Platform Features -->
-    <section id="features" class="section" aria-labelledby="features-heading">
+
+    <!-- Features -->
+    <section id="features" class="section">
       <div class="container">
         <div class="section-header">
-          <h2 id="features-heading">Why teams choose Zyntex</h2>
-          <p>Built for reliability, security and global scale.</p>
+          <h2 class="section-title">Why teams choose Zyntex</h2>
+          <p class="section-subtitle">Secure, reliable and scalable solutions built for modern businesses.</p>
         </div>
 
         <div class="grid grid-3">
+
           <div class="card small-card">
             <h3>Real-time monitoring</h3>
             <p class="muted">
-              Live dashboards for CPU, memory, latency, throughput and custom metrics.
+              Track CPU, memory, API latency, network usage and custom metrics instantly.
             </p>
           </div>
 
           <div class="card small-card">
             <h3>Smart alerting</h3>
             <p class="muted">
-              Noise-free alerts with intelligent grouping and escalation policies.
+              Noise-free alerts with grouping, thresholds and escalation policies.
             </p>
           </div>
 
           <div class="card small-card">
             <h3>Secure by design</h3>
             <p class="muted">
-              Role-based access, audit logs and encryption for all data in transit and at rest.
+              Encryption, RBAC, access logs and zero-trust security practices.
             </p>
           </div>
-
-          <!-- <div class="card small-card">
-            <h3>Global coverage</h3>
-            <p class="muted">
-              Multi-region support and monitoring nodes close to your infrastructure.
-            </p>
-          </div> -->
 
           <div class="card small-card">
             <h3>Scales with you</h3>
             <p class="muted">
-              From startups to large enterprises — pay only for what you actually use.
+              From startups to enterprises — scale infrastructure seamlessly.
             </p>
           </div>
 
           <div class="card small-card">
             <h3>Human support</h3>
             <p class="muted">
-              Talk directly with engineers who understand infrastructure, not just scripts.
+              Talk directly with engineers, not bots or scripts.
             </p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- About
-    <section id="about" class="section section-alt" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="about-heading">About Zyntex</h2>
-          <p>
-            A dedicated team of engineers, architects and security specialists focused on reliable infrastructure.
-          </p>
-        </div>
-
-        <div class="grid grid-2 about-grid">
-          <div class="card">
-            <h3>Our Mission</h3>
-            <p class="muted">
-              We help businesses build, run and protect modern digital platforms without having to
-              maintain large in-house infrastructure teams.
-            </p>
-            <p class="muted">
-              From the first architecture diagram to production, we stay with you at every step.
-            </p>
-            <ul class="bullet-list">
-              <li>Design cloud-native architectures that are resilient and secure.</li>
-              <li>Automate repetitive work so your team can ship features faster.</li>
-              <li>Provide clear visibility into performance and risk.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>What we value</h3>
-            <ul class="value-list">
-              <li>
-                <strong>Security first</strong>
-                <span class="muted">Your data and uptime are always the priority.</span>
-              </li>
-              <li>
-                <strong>Transparency</strong>
-                <span class="muted">Honest communication and clear reporting.</span>
-              </li>
-              <li>
-                <strong>Innovation</strong>
-                <span class="muted">Adopting modern tools where they truly add value.</span>
-              </li>
-              <li>
-                <strong>Partnership</strong>
-                <span class="muted">We act as an extension of your engineering team.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- Contact -->
-    <section id="contact" class="section" aria-labelledby="contact-heading">
+    <section id="contact" class="section">
       <div class="container">
         <div class="section-header">
-          <h2 id="contact-heading">Contact us</h2>
-          <p>Tell us about your infrastructure and we’ll get back to you within 24 hours.</p>
+          <h2 class="section-title">Contact us</h2>
+          <p class="section-subtitle">Share your requirements and our team will respond within 24 hours.</p>
         </div>
 
         <div class="grid grid-2 contact-grid">
           <div class="card">
             <h3>Send a message</h3>
-            <form class="contact-form">
+
+            <form class="contact-form" id="contactForm">
               <div class="form-row">
                 <div class="form-group">
                   <label for="firstName">First name</label>
@@ -565,7 +401,7 @@
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="email">Work email</label>
+                  <label for="email">Email</label>
                   <input id="email" type="email" required>
                 </div>
                 <div class="form-group">
@@ -595,36 +431,35 @@
                 <strong>Email</strong>
                 <span class="muted">zyntexinfosoft@gmail.com</span>
               </li>
-            
               <li>
                 <strong>Phone</strong>
-                <span class="muted">+91 96647 47560 </span>
+                <span class="muted">+91 96647 47560</span>
                 <span class="muted">| +91 74330 40571</span>
               </li>
             </ul>
 
             <h3 class="contact-subtitle">Office Location</h3>
             <p class="muted">
-                    BHAVNAGAR, GUJARAT, INDIA
+              Bhavnagar, Gujarat, India
             </p>
 
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-       <!-- Background Video -->
-    <video autoplay muted loop playsinline id="bg-video">
-      <source src="zyntex1.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="zyntex1.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-left">
-        <!-- <span class="logo-mark small">Z</span> -->
         <span class="muted">© <span id="year"></span> Zyntex Technologies. All rights reserved.</span>
       </div>
       <div class="footer-links">
@@ -634,33 +469,14 @@
         <a href="#contact">Contact</a>
       </div>
     </div>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-   
-
   </footer>
 
-      <script>
-  const video = document.getElementById("bg-video");
-  const contactSection = document.getElementById("contact");
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Custom Script -->
+  <script src="script.js"></script>
 
-  window.addEventListener("scroll", () => {
-    const contactTop = contactSection.offsetTop;
-    const contactHeight = contactSection.offsetHeight;
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-    if (
-      scrollPosition >= contactTop &&
-      scrollPosition <= contactTop + contactHeight
-    ) {
-      video.style.opacity = "0";     // ✅ HIDE on Contact
-      video.style.pointerEvents = "none";
-    } else {
-      video.style.opacity = "1";     // ✅ SHOW on other sections
-      video.style.pointerEvents = "auto";
-    }
-  });
-</script>
 </body>
 </html>
