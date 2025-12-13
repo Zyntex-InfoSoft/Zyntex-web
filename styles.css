@@ -134,9 +134,12 @@ body::after {
 }
 
 .logo-img {
-  height: 40px;
+  height: 45px;
   width: auto;
   object-fit: contain;
+  overflow: hidden;
+  transform: scale(3.5);  /* Make logo visually larger */
+  transform-origin: left center;
 }
 
 /* Navigation Links */
@@ -144,6 +147,7 @@ body::after {
   display: flex;
   gap: 2rem;
   align-items: center;
+  pointer-events: none;
 }
 
 .nav-link {
@@ -165,6 +169,9 @@ body::after {
   background: var(--primary);
   transition: width 0.3s ease;
 }
+.nav-links.open {
+  pointer-events: auto;
+}
 
 .nav-link:hover {
   color: var(--primary-light);
@@ -175,17 +182,29 @@ body::after {
 }
 
 /* Mobile Toggle */
-.nav-toggle {
-  display: none;
+/* .nav-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 44px;
+  height: 44px;
+  opacity: 0;
+  z-index: 2001;
+  cursor: pointer;
 }
+
 
 .nav-toggle-label {
   display: none;
+  position: fixed;
+  top: 1.3rem;
+  right: 1.3rem;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 2000;
 }
+
 
 .nav-toggle-label span {
   width: 25px;
@@ -197,7 +216,35 @@ body::after {
 
 .nav-cta {
   margin-left: 1rem;
+} */
+.nav-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 1.3rem;
+  right: 1.3rem;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2001;
+  pointer-events: auto;
 }
+
+.nav-toggle-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-light);
+  margin: 5px auto;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.nav-links a {
+  font-size: 1rem;
+  padding: 0.4rem 0;
+}
+
 
 /* ======================================
    Buttons
@@ -772,7 +819,7 @@ body::after {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 220px;
     height: 100vh;
     background: rgba(15, 23, 42, 0.98);
     backdrop-filter: blur(20px);
@@ -782,6 +829,9 @@ body::after {
     padding: 2rem;
     transition: right 0.4s ease;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+    /* z-index: 1999; */
+    z-index: 3000;              
+    pointer-events: none;
   }
 
   .nav-toggle:checked ~ .nav-links {
@@ -828,6 +878,34 @@ body::after {
   .footer-links {
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .nav-toggle-btn {
+    display: block;
+  }
+
+  .nav-links {
+    right: -100%;
+  }
+
+  .nav-links.open {
+    right: 0;
+    pointer-events: auto;
+  }
+
+  .nav-toggle-btn {
+    z-index: 2000;
+  }
+
+  .nav-toggle-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .nav-toggle-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
   }
 }
 
