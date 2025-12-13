@@ -147,7 +147,7 @@ body::after {
   display: flex;
   gap: 2rem;
   align-items: center;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .nav-link {
