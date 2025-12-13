@@ -557,7 +557,20 @@ function debounce(func, wait = 10) {
     timeout = setTimeout(later, wait);
   };
 }
+const toggleBtn = document.querySelector('.nav-toggle-btn');
+const navLinks = document.querySelector('.nav-links');
 
+toggleBtn.addEventListener('click', () => {
+  toggleBtn.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+
+navLinks.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A') {
+    toggleBtn.classList.remove('open');
+    navLinks.classList.remove('open');
+  }
+});
 // ======================================
 // Console Welcome Message
 // ======================================
