@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initFormHandler();
   initNumberCounters();
   initStatusBars();
-  initMobileMenu();
+  // initMobileMenu();
 });
 
 // ======================================
@@ -48,7 +48,9 @@ function initSmoothScrolling() {
       
       if (target) {
         // Close mobile menu if open
-        document.getElementById('nav-toggle').checked = false;
+        document.querySelector('.nav-toggle-btn')?.classList.remove('open');
+        document.querySelector('.nav-links')?.classList.remove('open');
+
         
         const headerOffset = 80;
         const elementPosition = target.getBoundingClientRect().top;
@@ -365,27 +367,27 @@ function initStatusBars() {
 // ======================================
 // Mobile Menu Control
 // ======================================
-function initMobileMenu() {
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.querySelectorAll('.nav-link');
+// function initMobileMenu() {
+//   const navToggle = document.getElementById('nav-toggle');
+//   const navLinks = document.querySelectorAll('.nav-link');
   
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    const nav = document.querySelector('.nav-links');
-    const toggle = document.querySelector('.nav-toggle-label');
+//   // Close menu when clicking outside
+//   document.addEventListener('click', (e) => {
+//     const nav = document.querySelector('.nav-links');
+//     const toggle = document.querySelector('.nav-toggle-label');
     
-    if (navToggle.checked && !nav.contains(e.target) && !toggle.contains(e.target)) {
-      navToggle.checked = false;
-    }
-  });
+//     if (navToggle.checked && !nav.contains(e.target) && !toggle.contains(e.target)) {
+//       navToggle.checked = false;
+//     }
+//   });
 
-  // Close menu when clicking a link
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.checked = false;
-    });
-  });
-}
+//   // Close menu when clicking a link
+//   navLinks.forEach(link => {
+//     link.addEventListener('click', () => {
+//       navToggle.checked = false;
+//     });
+//   });
+// }
 
 // ======================================
 // Form Handler
@@ -557,7 +559,20 @@ function debounce(func, wait = 10) {
     timeout = setTimeout(later, wait);
   };
 }
+const toggleBtn = document.querySelector('.nav-toggle-btn');
+  const navLinks = document.querySelector('.nav-links');
 
+  toggleBtn.addEventListener('click', () => {
+    toggleBtn.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  navLinks.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      toggleBtn.classList.remove('open');
+      navLinks.classList.remove('open');
+    }
+  });
 // ======================================
 // Console Welcome Message
 // ======================================
