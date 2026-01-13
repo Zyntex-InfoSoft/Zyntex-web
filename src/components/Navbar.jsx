@@ -1,6 +1,10 @@
+import React, { useState } from "react";
 import logo from "../assets/images/logo1.jpg";
+import '../assets/css/main.css';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="site-header">
       <div className="container nav-container">
@@ -8,21 +12,30 @@ const Navbar = () => {
           <img src={logo} className="logo-img" alt="Zyntex Logo" />
         </div>
 
-        <button className="nav-toggle-btn" aria-label="Toggle navigation">
+        {/* Hamburger Button */}
+        <button 
+          className={`nav-toggle-btn ${isOpen ? "active" : ""}`} 
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav className="nav-links">
-          <a href="#home" className="nav-link">Home</a>
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#features" className="nav-link">Features</a>
-          <a href="#about" className="nav-link">About</a>
-          <a href="#footer" className="nav-link">Contact</a>
+        {/* Navigation Links */}
+        <nav className={`nav-links ${isOpen ? "active" : ""}`}>
+          <a href="#home" className="nav-link" onClick={() => setIsOpen(false)}>Home</a>
+          <a href="#services" className="nav-link" onClick={() => setIsOpen(false)}>Services</a>
+          <a href="#features" className="nav-link" onClick={() => setIsOpen(false)}>Features</a>
+          <a href="#about" className="nav-link" onClick={() => setIsOpen(false)}>About</a>
+          <a href="#footer" className="nav-link" onClick={() => setIsOpen(false)}>Contact</a>
+          
+          <a href="#footer" className="btn btn-primary nav-cta-mobile" onClick={() => setIsOpen(false)}>
+            Get a demo
+          </a>
         </nav>
 
-        <a href="#contact" className="btn btn-primary nav-cta">
+        <a href="#footer" className="btn btn-primary nav-cta-desktop">
           Get a demo
         </a>
       </div>
