@@ -1,0 +1,127 @@
+/* ======================
+   HEADER & CONTAINER
+====================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #020617;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ======================
+   LOGO
+====================== */
+.logo-img {
+  height: 45px;
+}
+
+/* ======================
+   NAV LINKS (DESKTOP)
+====================== */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-left: auto;
+}
+
+/* ======================
+   TOGGLE BUTTON
+====================== */
+.nav-toggle-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle-btn span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+
+/* ======================
+   MOBILE STYLES (IMPORTANT)
+====================== */
+@media (max-width: 900px) {
+
+  /* Show toggle */
+  .nav-toggle-btn {
+    display: flex;
+  }
+
+  /* Hide menu by default */
+  /* ======================
+   MOBILE SLIDE MENU
+====================== */
+@media (max-width: 900px) {
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #020617;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    /* z-index: 1001; */
+
+    /* 🔥 animation setup */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.35s ease;
+    
+  }
+
+  .nav-links.active {
+    max-height: 300px; /* enough for menu */
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+}
+
+}
+
+/* ======================
+   TOGGLE ANIMATION
+====================== */
+.nav-toggle-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
