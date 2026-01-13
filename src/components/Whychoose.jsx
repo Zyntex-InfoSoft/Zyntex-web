@@ -1,7 +1,48 @@
-import React from 'react';
+import { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../assets/css/main.css';
 
 const Whychoose = () => {
+  const comp = useRef(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      // Header
+      gsap.fromTo(".section-header",
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".section-header",
+            start: "top 85%"
+          }
+        }
+      );
+
+      // Cards Stagger
+      gsap.fromTo(".card",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".grid-3",
+            start: "top 85%"
+          }
+        }
+      );
+    }, comp);
+
+    return () => ctx.revert();
+  }, []);
+
   const featureData = [
     {
       title: "Real-time monitoring",
@@ -26,7 +67,7 @@ const Whychoose = () => {
   ];
 
   return (
-    <section id="features" className="section">
+    <section id="features" className="section" ref={comp}>
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Why teams choose Zyntex</h2>
