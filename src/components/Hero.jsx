@@ -111,11 +111,11 @@ const Hero = () => {
 
           <div className="hero-stats-row">
             <div className="hero-stat">
-              <span className="hero-stat-number">650+</span>
+              <span className="hero-stat-number">15+</span>
               <span className="hero-stat-label">Projects Delivered</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-number">100+</span>
+              <span className="hero-stat-number">10+</span>
               <span className="hero-stat-label">Enterprise Clients</span>
             </div>
             <div className="hero-stat">

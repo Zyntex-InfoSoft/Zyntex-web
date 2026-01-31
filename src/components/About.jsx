@@ -238,7 +238,7 @@ const About = () => {
             <div className="block-body">
               <div className="stats-grid">
                 <div className="stat-item">
-                  <span className="counter-value" data-target="650">0</span>
+                  <span className="counter-value" data-target="15">0</span>
                   <span className="stat-plus">+</span>
                   <p>Projects Delivered</p>
                 </div>
@@ -250,13 +250,13 @@ const About = () => {
                 </div>
                 <div className="stat-divider"></div>
                 <div className="stat-item">
-                  <span className="counter-value" data-target="25">0</span>
+                  <span className="counter-value" data-target="10">0</span>
                   <span className="stat-plus">+</span>
                   <p>Team Members</p>
                 </div>
                 <div className="stat-divider"></div>
                 <div className="stat-item">
-                  <span className="counter-value" data-target="8">0</span>
+                  <span className="counter-value" data-target="3">0</span>
                   <p>Years Experience</p>
                 </div>
               </div>
