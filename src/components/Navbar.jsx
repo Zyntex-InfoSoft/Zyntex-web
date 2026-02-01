@@ -53,14 +53,14 @@ const Navbar = () => {
           <a href="#services" className="nav-link" onClick={() => setIsOpen(false)}>Services</a>
           <a href="#features" className="nav-link" onClick={() => setIsOpen(false)}>Features</a>
           <a href="#about" className="nav-link" onClick={() => setIsOpen(false)}>About</a>
-          <a href="#footer" className="nav-link" onClick={() => setIsOpen(false)}>Contact</a>
+          <a href="#contact" className="nav-link" onClick={() => setIsOpen(false)}>Contact</a>
 
-          <a href="#footer" className="btn btn-primary nav-cta-mobile" onClick={() => setIsOpen(false)}>
+          <a href="#contact" className="btn btn-primary nav-cta-mobile" onClick={() => setIsOpen(false)}>
             Get a demo
           </a>
         </nav>
 
-        <a href="#footer" className="btn btn-primary nav-cta-desktop">
+        <a href="#contact" className="btn btn-primary nav-cta-desktop">
           Get a demo
         </a>
       </div>
