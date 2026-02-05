@@ -10,6 +10,12 @@ const Chatbot = () => {
             text: "Hi there! 👋 Welcome to Zyntex Infosoft. How can I help you today?", 
             sender: 'bot',
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        },
+        { 
+            id: 2, 
+            text: "💡 Hint: Type 'service' for services info or 'cost' for pricing details.", 
+            sender: 'bot',
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
     ]);
     const [inputValue, setInputValue] = useState("");
@@ -63,11 +69,29 @@ const Chatbot = () => {
 
     const getBotResponse = (text) => {
         const lowerText = text.toLowerCase();
-        if (lowerText.includes('hello') || lowerText.includes('hi')) return "Hello! ready to create something amazing?";
-        if (lowerText.includes('service') || lowerText.includes('offer')) return "We offer Web Development, UI/UX Design, and digital branding services.";
-        if (lowerText.includes('contact') || lowerText.includes('email')) return "You can reach us at contact@zyntex.com or use the contact form on this page.";
-        if (lowerText.includes('price') || lowerText.includes('cost')) return "Our pricing depends on the project scope. Let's chat about your requirements!";
-        return "Thanks for your message! This is a demo bot, but a real human will be with you shortly if you leave your contact info.";
+        
+        // Greetings
+        if (lowerText.match(/\b(hi|hello|hey|greetings|start)\b/)) 
+            return "Hello! Ready to create something amazing? 🚀";
+            
+        // Services
+        if (lowerText.match(/\b(service|services|offer|what do you do)\b/)) 
+            return "We offer: \n• Web Development 🌐\n• Mobile Apps 📱\n• UI/UX Design 🎨\n• AI & ML Solutions 🤖\n• Cloud Solutions ☁️";
+            
+        // Cost / Pricing
+        if (lowerText.match(/\b(cost|price|pricing|quote|rate|expensive|cheap)\b/)) 
+            return "Our pricing depends on the project scope. 💰 Basic websites start from $50. Let's chat about your requirements for a custom quote!";
+            
+        // Contact
+        if (lowerText.match(/\b(contact|email|phone|call|reach|address|location)\b/)) 
+            return "You can reach us at:\n📧 zyntexinfosoft@gmail.com\n📞 +91 96647 47560\n📍 Bhavnagar, Gujarat, India\nOr use the contact form! 📝";
+
+        // Technology
+        if (lowerText.match(/\b(tech|technology|stack|react|node|python)\b/)) 
+            return "We use modern tech stacks including React, Django, Next.js Node.js, Python, Flutter,  and more! 💻";
+
+        // Default
+        return "Thanks for your message! This is a demo bot, but a real human will be with you shortly if you leave your contact info in the form below. 👇";
     };
 
     return (
