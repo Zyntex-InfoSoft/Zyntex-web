@@ -159,7 +159,7 @@ const About = () => {
               <h3>Our Story</h3>
             </div>
             <div className="block-body">
-              <span className="story-year">Est. 2015</span>
+              <span className="story-year">Est. 2023</span>
               <p>
                 What started as a small team with big dreams has evolved into a 
                 full-service digital agency. Over the years, we've partnered with 

@@ -142,10 +142,9 @@ const Contact = () => {
       gsap.from(".info-item", {
         scrollTrigger: {
           trigger: ".info-items",
-          start: "top 90%",
+          start: "top 95%", // Trigger earlier
         },
-        opacity: 0,
-        x: 20,
+        y: 20, // Only animate position, let opacity stay safe or handle via CSS
         stagger: 0.1,
         duration: 0.6,
         ease: "power3.out",
@@ -375,7 +374,10 @@ const Contact = () => {
                         </svg>
                       </div>
                     </div>
-                    <div className={`dropdown-options ${dropdownOpen ? 'show' : ''}`}>
+                    <div 
+                      className={`dropdown-options ${dropdownOpen ? 'show' : ''}`}
+                      onWheel={(e) => e.stopPropagation()}
+                    >
                       {serviceOptions.map((option) => (
                         <div
                           key={option.value}
@@ -447,70 +449,93 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* Info Side */}
+            {/* Info Side - Creative & Eye Catching */}
             <div className="contact-info-side">
-              <div className="info-card">
+              <div className="info-card creative-card">
+                <div className="card-status-bar">
+                  <div className="status-indicator">
+                    <span className="status-dot pulse-green"></span>
+                    <span className="status-text">Available New Projects</span>
+                  </div>
+                  <span className="response-time">~ 2 hr response</span>
+                </div>
+
                 <div className="info-card-header">
-                  <h3>Contact Information</h3>
-                  <p>Fill out the form and we'll be in touch within 24 hours</p>
+                  <h3>Get In Touch</h3>
+                  <p>Ready to start your next big project? We are here to help you.</p>
                 </div>
 
                 <div className="info-items">
-                  <a href="mailto:zyntexinfosoft@gmail.com" className="info-item">
-                    <div className="info-icon">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <a href="mailto:zyntexinfosoft@gmail.com" className="info-item item-highlight">
+                    <div className="item-bg-glow"></div>
+                    <div className="info-icon icon-email">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                         <polyline points="22,6 12,13 2,6"/>
                       </svg>
                     </div>
                     <div className="info-text">
-                      <span className="info-label">Email</span>
+                      <span className="info-label">Chat with us</span>
                       <span className="info-value">zyntexinfosoft@gmail.com</span>
+                    </div>
+                    <div className="item-arrow">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
                     </div>
                   </a>
 
-                  <a href="tel:+919664747560" className="info-item">
-                    <div className="info-icon">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <a href="tel:+919664747560" className="info-item item-highlight">
+                    <div className="item-bg-glow"></div>
+                    <div className="info-icon icon-phone">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                       </svg>
                     </div>
                     <div className="info-text">
-                      <span className="info-label">Phone</span>
+                      <span className="info-label">Call us directly</span>
                       <span className="info-value">+91 96647 47560</span>
                     </div>
+                     <div className="item-arrow">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </div>
                   </a>
-
-                  <div className="info-item">
-                    <div className="info-icon">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                      </svg>
-                    </div>
-                    <div className="info-text">
-                      <span className="info-label">Location</span>
-                      <span className="info-value">Bhavnagar, Gujarat, India</span>
-                    </div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="info-icon">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
-                      </svg>
-                    </div>
-                    <div className="info-text">
-                      <span className="info-label">Working Hours</span>
-                      <span className="info-value">Mon - Sat, 10AM - 7PM IST</span>
-                    </div>
+                  
+                  <div className="info-row">
+                     <div className="info-mini-card">
+                        <div className="mini-icon">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                          </svg>
+                        </div>
+                        <div>
+                           <span className="mini-label">HQ</span>
+                           <span className="mini-value">Gujarat, India</span>
+                        </div>
+                     </div>
+                     <div className="info-mini-card">
+                        <div className="mini-icon">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                        </div>
+                        <div>
+                           <span className="mini-label">Work Hours</span>
+                           <span className="mini-value">10 AM - 7 PM</span>
+                        </div>
+                     </div>
                   </div>
                 </div>
 
                 {/* Social Links */}
-                <div className="info-social">
-                  <span className="social-label">Follow Us</span>
+                <div className="info-social creative-social">
+                  <span className="social-label">Connect with us</span>
                   <div className="social-links-contact">
                     <a href="#" className="social-link-contact" aria-label="LinkedIn">
                       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">

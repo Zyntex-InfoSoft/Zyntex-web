@@ -3193,17 +3193,15 @@ body {
 
 /* Custom Dropdown Styles */
 .custom-dropdown {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1.75rem 1rem 0.5rem 2.75rem;
+  position: relative;
+  flex: 1;
+  padding: 1.75rem 1rem 0.5rem 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: transparent;
+  min-height: 3.5rem;
 }
 
 .dropdown-selected {
@@ -3257,6 +3255,7 @@ body {
   backdrop-filter: blur(20px);
   max-height: 300px;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .dropdown-options.show {
@@ -3339,20 +3338,21 @@ body {
 
 /* Scrollbar for dropdown */
 .dropdown-options::-webkit-scrollbar {
-  width: 6px;
+  width: 10px; /* Made scrollbar wider for better grip */
 }
 
 .dropdown-options::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .dropdown-options::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.3);
-  border-radius: 3px;
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 5px;
+  border: 2px solid rgba(17, 17, 17, 0.9); /* Creates padding effect */
 }
 
 .dropdown-options::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.7);
 }
 
 /* Full Width Field */
@@ -3800,4 +3800,190 @@ body {
   .about-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ======================================
+   CREATIVE INFO CARD STYLES
+   ====================================== */
+.creative-card {
+  background: linear-gradient(145deg, rgba(20, 20, 25, 0.9), rgba(10, 10, 12, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status Bar */
+.card-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.4rem 0.85rem;
+  border-radius: 50px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+.status-dot.pulse-green {
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.status-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.response-time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Highlight Items (Large Cards) */
+.item-highlight {
+  position: relative;
+  padding: 1.25rem 1.5rem !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.item-highlight:hover {
+  transform: translateY(-5px) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+}
+
+.item-bg-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.item-highlight:hover .item-bg-glow {
+  opacity: 1;
+}
+
+.item-highlight .info-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(30, 30, 40, 0.8), rgba(20, 20, 25, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.item-highlight:hover .info-icon {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  border-color: transparent;
+}
+
+.item-highlight:hover .info-icon svg {
+  stroke: #fff;
+  fill: none;
+}
+
+.item-highlight .info-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.item-highlight .info-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.item-arrow {
+  margin-left: auto;
+  color: var(--text-muted);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  transform: translateX(-5px);
+}
+
+.item-highlight:hover .item-arrow {
+  opacity: 1;
+  color: #c4b5fd;
+  transform: translateX(0);
+}
+
+/* Info Row for Mini Cards */
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.info-mini-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.mini-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a78bfa;
+  background: rgba(139, 92, 246, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.mini-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mini-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.mini-value {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
 }

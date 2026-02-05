@@ -10,6 +10,7 @@ import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -72,6 +73,7 @@ function App() {
           <Whychoose />
           <Contact />
           <Footer />
+          <Chatbot />
         </div>
       )}
     </>

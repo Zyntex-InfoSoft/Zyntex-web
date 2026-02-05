@@ -1,43 +1,58 @@
-import { useLayoutEffect, useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import "./Preloader.css";
 
 const Preloader = ({ onComplete }) => {
     const containerRef = useRef(null);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    useLayoutEffect(() => {
-        const tl = gsap.timeline();
+    // 1. Animation Logic - Only runs when content is loaded
+    useEffect(() => {
+        if (isLoaded) {
+            const tl = gsap.timeline();
 
-        // Let video play for 5 seconds clean
-        tl.to(containerRef.current, {
-            duration: 5,
-            ease: "none"
-        });
+            // Play animation for 5 seconds
+            tl.to(containerRef.current, {
+                duration: 5,
+                ease: "none"
+            });
 
-        // Then fade out preloader
-        tl.to(containerRef.current, {
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.inOut",
-            onComplete: () => {
-                gsap.set(containerRef.current, { display: "none" });
-                if (onComplete) onComplete();
-            }
-        }, 5);
+            // Fade out
+            tl.to(containerRef.current, {
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    gsap.set(containerRef.current, { display: "none" });
+                    if (onComplete) onComplete();
+                }
+            });
 
-        return () => tl.kill();
-    }, [onComplete]);
+            return () => tl.kill();
+        }
+    }, [isLoaded, onComplete]);
+
+    // 2. Safety Timeout: Force load after 4 seconds if internet is too slow
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoaded(true), 4000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className="preloader" ref={containerRef}>
-            {/* Background Video - Clean, no overlays */}
+            
+            {/* Optimized for Slow Internet: WEBM Video */}
             <video 
                 className="preloader-video" 
                 autoPlay 
                 muted 
                 loop
-                src="/videos/zyntex logo (1).mp4"
+                playsInline
+                // Using onLoadedData to ensure it only plays when ready
+                onLoadedData={() => setIsLoaded(true)}
+                src="/videos/zyntex logo (1).webm"
             />
+            
         </div>
     );
 };
