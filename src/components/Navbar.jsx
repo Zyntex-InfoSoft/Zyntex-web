@@ -55,14 +55,25 @@ const Navbar = () => {
           <a href="#about" className="nav-link" onClick={() => setIsOpen(false)}>About</a>
           <a href="#contact" className="nav-link" onClick={() => setIsOpen(false)}>Contact</a>
 
-          <a href="#contact" className="btn btn-primary nav-cta-mobile" onClick={() => setIsOpen(false)}>
-            Get a demo
-          </a>
+          <button
+            className="btn btn-primary nav-cta-mobile"
+            onClick={() => {
+              setIsOpen(false);
+              window.dispatchEvent(new CustomEvent('openChatbot'));
+            }}
+          >
+            Chat with us
+          </button>
         </nav>
 
-        <a href="#contact" className="btn btn-primary nav-cta-desktop">
-          Get a demo
-        </a>
+        <button
+          className="btn btn-primary nav-cta-desktop"
+          onClick={() => {
+            window.dispatchEvent(new CustomEvent('openChatbot'));
+          }}
+        >
+          Chat with us
+        </button>
       </div>
     </header>
   );

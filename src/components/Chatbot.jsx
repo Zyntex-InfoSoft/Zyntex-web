@@ -1,19 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Chatbot.css';
+import chatbotLogo from '../assets/images/chat.png';
 
 const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [showToggle, setShowToggle] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
     const [messages, setMessages] = useState([
-        { 
-            id: 1, 
-            text: "Hi there! 👋 Welcome to Zyntex Infosoft. How can I help you today?", 
+        {
+            id: 1,
+            text: "Hi there! 👋 Welcome to Zyntex Infosoft. How can I help you today?",
             sender: 'bot',
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         },
-        { 
-            id: 2, 
-            text: "💡 Hint: Type 'service' for services info or 'cost' for pricing details.", 
+        {
+            id: 2,
+            text: "💡 Hint: Type 'service' for services info or 'cost' for pricing details.",
             sender: 'bot',
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
@@ -27,7 +30,28 @@ const Chatbot = () => {
 
     useEffect(() => {
         scrollToBottom();
-    }, [messages, isOpen]);
+    }, [messages, isOpen, isTyping]);
+
+    // Show toggle button after 3 seconds delay
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowToggle(true);
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Listen for custom event to open chatbot from navbar
+    useEffect(() => {
+        const handleOpenChatbot = () => {
+            setShowToggle(true);
+            if (!isOpen) {
+                setIsOpen(true);
+            }
+        };
+
+        window.addEventListener('openChatbot', handleOpenChatbot);
+        return () => window.removeEventListener('openChatbot', handleOpenChatbot);
+    }, [isOpen]);
 
     const handleToggle = () => {
         if (isOpen) {
@@ -55,8 +79,12 @@ const Chatbot = () => {
         setMessages(prev => [...prev, userMsg]);
         setInputValue("");
 
+        // Show typing indicator
+        setIsTyping(true);
+
         // Simulate bot response
         setTimeout(() => {
+            setIsTyping(false);
             const botResponse = getBotResponse(userMsg.text);
             setMessages(prev => [...prev, {
                 id: Date.now() + 1,
@@ -64,111 +92,135 @@ const Chatbot = () => {
                 sender: 'bot',
                 timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
             }]);
-        }, 1000);
+        }, 1500);
     };
 
     const getBotResponse = (text) => {
         const lowerText = text.toLowerCase();
         
         // Greetings
-        if (lowerText.match(/\b(hi|hello|hey|greetings|start)\b/)) 
-            return "Hello! Ready to create something amazing? 🚀";
+        if (lowerText.match(/\b(hi|hello|hey|greetings|start|good morning|good evening|good afternoon)\b/)) 
+            return "Hello! 👋 Ready to create something amazing? How can I help you today? 🚀";
+
+        // Company Intro
+        if (lowerText.match(/\b(who are you|what is zyntex|intro|zyntex|about zyntex|what is this|tell me about|your company|about you)\b/)) 
+            return "Zyntex Infosoft is a tech community solving real-world problems with digital solutions! 🌍✨\n\nWe specialize in Web, Mobile Apps, AI/ML & more.";
+        
+        // Interest in Building - App/Website/Project
+        if (lowerText.match(/\b(i want|i need|build|create|develop|make|looking for|interested|need help|want to build|want to create|want to develop|i'm interested|im interested|want a|need a)\b/) && 
+            lowerText.match(/\b(app|application|website|web app|mobile app|software|project|platform|system|ecommerce|e-commerce|portal|dashboard|saas|mvp|startup|business|shop|store|blog|landing page)\b/)) 
+            return "That's awesome! 🎉 We'd love to help you build that!✶\n\n📝 Why not connect with us by filling out the contact form? Our team will get back to you within 24 hours!✶\n\n👇 Scroll down to find the contact form or type 'contact' for our details.";
+
+        // General Interest/Help Request
+        if (lowerText.match(/\b(i want|i need|help me|can you help|interested in|looking to|want to start|need assistance|require|seeking)\b/)) 
+            return "We're here to help! 💪\n\n📝 Fill out our contact form and let's discuss your requirements. We'll get back to you ASAP!✶\n\nType 'service' to see what we offer or 'contact' for our details.";
             
         // Services
-        if (lowerText.match(/\b(service|services|offer|what do you do)\b/)) 
-            return "We offer: \n• Web Development 🌐\n• Mobile Apps 📱\n• UI/UX Design 🎨\n• AI & ML Solutions 🤖\n• Cloud Solutions ☁️";
+        if (lowerText.match(/\b(service|services|offer|what do you do|what you do|capabilities|solutions|expertise)\b/)) 
+            return "We offer:\n• 🌐 Web Development\n• 📱 Mobile Apps (iOS & Android)\n• 🎨 UI/UX Design\n• 🤖 AI & ML Solutions\n• ☁️ Cloud Solutions\n• 🛒 E-commerce Development\n• 🔧 Custom Software\n\nInterested? Type 'quote' or fill the contact form! 📝";
             
-        // Cost / Pricing
-        if (lowerText.match(/\b(cost|price|pricing|quote|rate|expensive|cheap)\b/)) 
-            return "Our pricing depends on the project scope. 💰 Basic websites start from $50. Let's chat about your requirements for a custom quote!";
+        // Cost / Pricing / Quote
+        if (lowerText.match(/\b(cost|price|pricing|quote|rate|expensive|cheap|budget|how much|fees|charges|estimate|affordable)\b/)) 
+            return "💰 Our pricing depends on project scope:\n\n• Basic Website: From $50\n• E-commerce: From $200\n• Mobile App: From $300\n• Custom Projects: Let's discuss!\n\n📝 Fill the contact form for a FREE custom quote!";
             
         // Contact
-        if (lowerText.match(/\b(contact|email|phone|call|reach|address|location)\b/)) 
-            return "You can reach us at:\n📧 zyntexinfosoft@gmail.com\n📞 +91 96647 47560\n📍 Bhavnagar, Gujarat, India\nOr use the contact form! 📝";
+        if (lowerText.match(/\b(contact|email|phone|call|reach|address|location|connect|get in touch|talk|speak|meet)\b/)) 
+            return "📞 Let's connect!✶\n\n📧 Email: zyntexinfosoft@gmail.com\n📱 Phone: +91 96647 47560\n\n📝 Or fill out the contact form below for quick response!";
 
-        // Technology
-        if (lowerText.match(/\b(tech|technology|stack|react|node|python)\b/)) 
-            return "We use modern tech stacks including React, Django, Next.js Node.js, Python, Flutter,  and more! 💻";
-
-        // Default
-        return "Thanks for your message! This is a demo bot, but a real human will be with you shortly if you leave your contact info in the form below. 👇";
+        return "I'm not sure I understand. 🤔\n\nTry asking about:\n• Our Services\n• Pricing\n• Contact Info\n• Or just say 'Hi'! 👋";
     };
 
     return (
         <div className="chatbot-container">
-            {/* Chat Window */}
+            {/* Window */}
             {(isOpen || isClosing) && (
                 <div className={`chatbot-window ${isClosing ? 'closing' : ''}`}>
-                    <div className="chat-header">
-                        <div className="chat-header-info">
-                            <div className="bot-avatar">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd" clipRule="evenodd" d="M12 2.5C13.1046 2.5 14 3.39543 14 4.5C14 5.60457 13.1046 6.5 12 6.5C10.8954 6.5 10 5.60457 10 4.5C10 3.39543 10.8954 2.5 12 2.5ZM11 6.38202V8.04949C6.98592 8.52985 4 11.9079 4 16C4 16.5523 4.44772 17 5 17H19C19.5523 17 20 16.5523 20 16C20 11.9079 17.0141 8.52985 13 8.04949V6.38202C13.5978 6.13664 14 5.56846 14 4.5C14 3.39543 13.1046 2.5 12 2.5C10.8954 2.5 10 3.39543 10 4.5C10 5.56846 10.4022 6.13664 11 6.38202ZM9 13C9.55228 13 10 12.5523 10 12C10 11.4477 9.55228 11 9 11C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13ZM15 13C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11C14.4477 11 14 11.4477 14 12C14 12.5523 14.4477 13 15 13Z"/>
-                                    <path d="M21 12C21.5523 12 22 12.4477 22 13V15C22 15.5523 21.5523 16 21 16C20.4477 16 20 15.5523 20 15V13C20 12.4477 20.4477 12 21 12Z" fill="white"/>
-                                    <path d="M3 12C3.55228 12 4 12.4477 4 13V15C4 15.5523 3.55228 16 3 16C2.44772 16 2 15.5523 2 15V13C2 12.4477 2.44772 12 3 12Z" fill="white"/>
-                                </svg>
-                                <div className="bot-status-dot"></div>
-                            </div>
-                            <div className="chat-title">
-                                <h3>Zyntex AI</h3>
-                                <p>Online</p>
-                            </div>
-                        </div>
-                        <button className="close-btn" onClick={handleToggle}>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
-                    </div>
+                   {/* Header */}
+                   <div className="chat-header">
+                       <div className="chat-header-info">
+                           <div className="bot-avatar">
+                               <img src={chatbotLogo} alt="Bot" />
+                           </div>
+                           <div className="chat-title">
+                               <h3>Zyntex Assistant</h3>
+                               <p>Online & Ready to Help</p>
+                           </div>
+                       </div>
+                       <button className="close-btn" onClick={handleToggle}>
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                           </svg>
+                       </button>
+                   </div>
 
-                    <div className="chat-messages">
-                        <div className="chat-body-bg"></div>
-                        {messages.map((msg) => (
-                            <div key={msg.id} className={`message ${msg.sender}`}>
-                                <div className="message-content">{msg.text}</div>
-                                <span className="message-time">{msg.timestamp}</span>
-                            </div>
-                        ))}
-                        <div ref={messagesEndRef} />
-                    </div>
+                   {/* Messages */}
+                   <div className="chat-messages">
+                       <div className="chat-body-bg"></div>
+                       {messages.map((msg) => (
+                           <div key={msg.id} className={`message ${msg.sender}`}>
+                               {msg.sender === 'bot' && (
+                                   <div className="message-avatar">
+                                       <img src={chatbotLogo} alt="Bot" />
+                                   </div>
+                               )}
+                               <div className="message-bubble">
+                                   <div className="message-content">
+                                       {msg.text}
+                                   </div>
+                                   <span className="message-time">{msg.timestamp}</span>
+                               </div>
+                           </div>
+                       ))}
+                       {isTyping && (
+                           <div className="message bot">
+                               <div className="message-avatar">
+                                   <img src={chatbotLogo} alt="Bot" />
+                               </div>
+                               <div className="message-bubble">
+                                   <div className="typing-indicator">
+                                       <span></span>
+                                       <span></span>
+                                       <span></span>
+                                   </div>
+                               </div>
+                           </div>
+                       )}
+                       <div ref={messagesEndRef} />
+                   </div>
 
-                    <form className="chat-input-area" onSubmit={handleSend}>
-                        <input 
-                            type="text" 
-                            className="chat-input" 
-                            placeholder="Type a message..." 
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                        />
-                        <button type="submit" className="send-btn" disabled={!inputValue.trim()}>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                        </button>
-                    </form>
+                   {/* Input */}
+                   <div className="chat-input-area">
+                       <form onSubmit={handleSend} className="input-wrapper">
+                           <input 
+                               type="text" 
+                               className="chat-input"
+                               placeholder="Type your message..."
+                               value={inputValue}
+                               onChange={(e) => setInputValue(e.target.value)}
+                           />
+                           <button type="submit" className="send-btn" disabled={!inputValue.trim()}>
+                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                   <line x1="22" y1="2" x2="11" y2="13"></line>
+                                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                               </svg>
+                           </button>
+                       </form>
+                       <div className="powered-by">
+                           Powered by <span>Zyntex AI</span>
+                       </div>
+                   </div>
                 </div>
             )}
 
             {/* Toggle Button */}
-            <button className="chatbot-toggle" onClick={handleToggle}>
-                <div className={`chatbot-icon ${isOpen ? 'open' : ''}`}>
-                    {isOpen ? (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    ) : (
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M12 2.5C13.1046 2.5 14 3.39543 14 4.5C14 5.60457 13.1046 6.5 12 6.5C10.8954 6.5 10 5.60457 10 4.5C10 3.39543 10.8954 2.5 12 2.5ZM11 6.38202V8.04949C6.98592 8.52985 4 11.9079 4 16C4 16.5523 4.44772 17 5 17H19C19.5523 17 20 16.5523 20 16C20 11.9079 17.0141 8.52985 13 8.04949V6.38202C13.5978 6.13664 14 5.56846 14 4.5C14 3.39543 13.1046 2.5 12 2.5C10.8954 2.5 10 3.39543 10 4.5C10 5.56846 10.4022 6.13664 11 6.38202ZM9 13C9.55228 13 10 12.5523 10 12C10 11.4477 9.55228 11 9 11C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13ZM15 13C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11C14.4477 11 14 11.4477 14 12C14 12.5523 14.4477 13 15 13Z"/>
-                            <path d="M21 12C21.5523 12 22 12.4477 22 13V15C22 15.5523 21.5523 16 21 16C20.4477 16 20 15.5523 20 15V13C20 12.4477 20.4477 12 21 12Z"/>
-                            <path d="M3 12C3.55228 12 4 12.4477 4 13V15C4 15.5523 3.55228 16 3 16C2.44772 16 2 15.5523 2 15V13C2 12.4477 2.44772 12 3 12Z"/>
-                        </svg>
-                    )}
-                </div>
-                {!isOpen && <span className="chatbot-text">Zyntex Bot</span>}
-            </button>
+            {showToggle && !isOpen && (
+                <button className={`chatbot-toggle ${!isOpen ? 'pulse' : ''}`} onClick={handleToggle}>
+                    <div className={`chatbot-icon ${isOpen ? 'open' : ''}`}>
+                         <img src={chatbotLogo} alt="Chat" />
+                    </div>
+                    <span className="chatbot-text">Chat with us!</span>
+                </button>
+            )}
         </div>
     );
 };
