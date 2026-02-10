@@ -290,6 +290,8 @@
 
 .input-wrapper {
     display: flex;
+    width: 100%;
+    box-sizing: border-box;
     gap: 12px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
@@ -305,12 +307,14 @@
 
 .chat-input {
     flex: 1;
+    min-width: 0;
     background: transparent;
     border: none;
     color: #e2e8f0;
     font-size: 0.95rem;
     padding: 12px 16px;
     outline: none;
+    box-sizing: border-box;
 }
 
 .chat-input::placeholder {
@@ -545,12 +549,22 @@
     }
     
     .chat-input-area {
-        padding: 14px 16px 16px;
+        padding: 12px 14px 14px;
+    }
+
+    .input-wrapper {
+        gap: 8px;
+        padding: 4px;
+    }
+
+    .chat-input {
+        padding: 10px 12px;
+        font-size: 0.9rem;
     }
     
     .send-btn {
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
     }
 }
 
