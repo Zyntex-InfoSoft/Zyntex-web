@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zyntexinfosoft.netlify.app/sitemap.xml
