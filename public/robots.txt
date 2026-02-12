@@ -3,7 +3,7 @@ Allow: /
 Disallow: /static/js/*.map
 Disallow: /static/css/*.map
 
-Sitemap: https://zyntexinfosoft.netlify.app/sitemap.xml
+Sitemap: https://www.zyntexinfosoft.com/sitemap.xml
 
 # Zyntex Infosoft - Web Development & IT Services Company
-# https://zyntexinfosoft.netlify.app
+# https://www.zyntexinfosoft.com
