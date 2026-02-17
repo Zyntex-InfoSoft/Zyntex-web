@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-bits": "^1.0.5",
+    "three": "^0.182.0"
+  }
+}
