@@ -265,13 +265,13 @@ Email: zyntexinfosoft@gmail.com | Phone: +91 96647 47560
                         <div ref={messagesEndRef} />
                     </div>
 
-                    {/* Quick Chips */}
+                    {/* Quick Chips
                     <div className="quick-chips">
                         <button onClick={() => handleQuickReply("Services")}>🛠 Services</button>
                         <button onClick={() => handleQuickReply("Pricing")}>💰 Pricing</button>
                         <button onClick={() => handleQuickReply("Contact")}>📞 Contact</button>
                         <button onClick={() => handleQuickReply("Timeline")}>⏱ Timeline</button>
-                    </div>
+                    </div> */}
 
                     {/* Input */}
                     <div className="chat-input-area">

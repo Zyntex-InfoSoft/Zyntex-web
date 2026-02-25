@@ -40,19 +40,20 @@ const Preloader = ({ onComplete }) => {
 
     return (
         <div className="preloader" ref={containerRef}>
-            
-            {/* Optimized for Slow Internet: WEBM Video */}
-            <video 
-                className="preloader-video" 
-                autoPlay 
-                muted 
+
+            {/* Fallback Loader (visible if video is slow) */}
+            {!isLoaded && <div className="preloader-spinner"></div>}
+
+            {/* Video Background */}
+            <video
+                className="preloader-video"
+                autoPlay
+                muted
                 loop
                 playsInline
-                // Using onLoadedData to ensure it only plays when ready
                 onLoadedData={() => setIsLoaded(true)}
                 src="/videos/zyntex logo (1).webm"
             />
-            
         </div>
     );
 };

@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
 import Chatbot from "./components/Chatbot";
+import Beams from "./components/Beams";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,24 +44,21 @@ function App() {
 
   return (
     <>
-      {/* Global Background Elements */}
-      <div className="noise-overlay"></div>
-      <div className="grid-background">
-        <div className="grid-background-orb grid-background-orb-1"></div>
-        <div className="grid-background-orb grid-background-orb-2"></div>
-        <div className="grid-background-orb grid-background-orb-3"></div>
-        <div className="grid-background-grid"></div>
-        <div className="grid-background-particles">
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
-          <div className="particle-dot"></div>
+
+      {!loading && (
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+          <Beams
+            beamWidth={3}
+            beamHeight={30}
+            beamNumber={20}
+            lightColor="#ffffff"
+            speed={2}
+            noiseIntensity={1.75}
+            scale={0.2}
+            rotation={30}
+          />
         </div>
-      </div>
+      )}
 
       {loading && <Preloader onComplete={() => setLoading(false)} />}
 

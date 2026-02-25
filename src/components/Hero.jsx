@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ThreeD from "./ThreeD";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,7 +62,7 @@ const Hero = () => {
               ease: "power2.out"
             });
           });
-          
+
           stat.addEventListener('mouseleave', () => {
             gsap.to(stat, {
               scale: 1,
@@ -79,11 +79,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero" ref={comp}>
-      {/* 3D Background */}
-      <ThreeD />
-      
       <div className="hero-overlay"></div>
-      
       <div className="hero-content-wrapper">
         <div className="hero-content">
           <h1 className="hero-title">
@@ -93,7 +89,7 @@ const Hero = () => {
           </h1>
 
           <p className="hero-subtitle">
-            Harness the power of AI, cloud computing, and cutting-edge 
+            Harness the power of AI, cloud computing, and cutting-edge
             software to transform your operations and accelerate growth.
           </p>
 
@@ -101,7 +97,7 @@ const Hero = () => {
             <a href="#contact" className="btn btn-primary btn-lg">
               Get Started
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
             <a href="#services" className="btn btn-outline btn-lg">
