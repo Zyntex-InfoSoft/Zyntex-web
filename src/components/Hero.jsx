@@ -83,14 +83,14 @@ const Hero = () => {
       <div className="hero-content-wrapper">
         <div className="hero-content">
           <h1 className="hero-title">
-            Powering Your Business with
+            Zyntex Infosoft Builds
             <br />
-            <span>Intelligent Technology</span>
+            <span>Intelligent Digital Solutions</span>
           </h1>
 
           <p className="hero-subtitle">
-            Harness the power of AI, cloud computing, and cutting-edge
-            software to transform your operations and accelerate growth.
+            We are a web development and IT solutions company helping startups
+            and businesses scale with websites, apps, cloud, and AI services.
           </p>
 
           <div className="hero-actions">

@@ -129,7 +129,7 @@ const Footer = () => {
             <div className="footer-brand">
               <div className="footer-logo-wrapper">
                 
-                <h3 className="footer-brand-name">Zyntex InfoSoft</h3>
+                <h3 className="footer-brand-name">Zyntex Infosoft</h3>
               </div>
               <p className="footer-tagline">
                 Crafting next-generation digital experiences that transform businesses and inspire innovation.
@@ -163,7 +163,7 @@ const Footer = () => {
                 <ul className="footer-nav-links">
                   <li><a href="#services"><span>→</span>Web Development</a></li>
                   <li><a href="#services"><span>→</span>Mobile Apps</a></li>
-                  <li><a href="#services"><span>→</span>CyerSecurity</a></li>
+                  <li><a href="#services"><span>→</span>Cybersecurity</a></li>
                   <li><a href="#services"><span>→</span>UI/UX Design</a></li>
                 </ul>
               </div>
@@ -194,7 +194,7 @@ const Footer = () => {
           <div className="footer-bottom">
             <div className="footer-bottom-content">
               <p className="copyright-text">
-                © {currentYear} Zyntex Technologies. All rights reserved.
+                © {currentYear} Zyntex Infosoft. All rights reserved.
               </p>
               
             </div>

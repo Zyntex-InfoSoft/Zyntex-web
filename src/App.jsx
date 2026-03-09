@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css"; // Ensure standard CSS is imported if needed, or we handled it manually
 
@@ -14,9 +14,11 @@ import Chatbot from "./components/Chatbot";
 import Beams from "./components/Beams";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
+    const timer = setTimeout(() => setShowPreloader(false), 1600);
+
     // Initialize Lenis Smooth Scroll
     const lenis = new Lenis({
       duration: 1.2,
@@ -38,6 +40,7 @@ function App() {
 
     // cleanup
     return () => {
+      clearTimeout(timer);
       lenis.destroy();
     };
   }, []);
@@ -45,35 +48,31 @@ function App() {
   return (
     <>
 
-      {!loading && (
-        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
-          <Beams
-            beamWidth={3}
-            beamHeight={30}
-            beamNumber={20}
-            lightColor="#ffffff"
-            speed={2}
-            noiseIntensity={1.75}
-            scale={0.2}
-            rotation={30}
-          />
-        </div>
-      )}
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+        <Beams
+          beamWidth={3}
+          beamHeight={30}
+          beamNumber={20}
+          lightColor="#ffffff"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={30}
+        />
+      </div>
 
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      {showPreloader && <Preloader onComplete={() => setShowPreloader(false)} />}
 
-      {!loading && (
-        <div className="app-container">
-          <Navbar />
-          <Hero />
-          <Services />
-          <About />
-          <Whychoose />
-          <Contact />
-          <Footer />
-          <Chatbot />
-        </div>
-      )}
+      <div className="app-container">
+        <Navbar />
+        <Hero />
+        <Services />
+        <About />
+        <Whychoose />
+        <Contact />
+        <Footer />
+        <Chatbot />
+      </div>
     </>
   );
 }

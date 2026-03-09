@@ -11,16 +11,16 @@ const Preloader = ({ onComplete }) => {
         if (isLoaded) {
             const tl = gsap.timeline();
 
-            // Play animation for 5 seconds
+            // Keep the animation brief so content is not delayed.
             tl.to(containerRef.current, {
-                duration: 5,
+                duration: 0.8,
                 ease: "none"
             });
 
             // Fade out
             tl.to(containerRef.current, {
                 opacity: 0,
-                duration: 0.8,
+                duration: 0.45,
                 ease: "power2.inOut",
                 onComplete: () => {
                     gsap.set(containerRef.current, { display: "none" });
@@ -32,9 +32,9 @@ const Preloader = ({ onComplete }) => {
         }
     }, [isLoaded, onComplete]);
 
-    // 2. Safety Timeout: Force load after 4 seconds if internet is too slow
+    // 2. Safety Timeout: force finish quickly if media loading lags.
     useEffect(() => {
-        const timer = setTimeout(() => setIsLoaded(true), 4000);
+        const timer = setTimeout(() => setIsLoaded(true), 1200);
         return () => clearTimeout(timer);
     }, []);
 
