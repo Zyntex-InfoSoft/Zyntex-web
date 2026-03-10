@@ -83,9 +83,9 @@ const Hero = () => {
       <div className="hero-content-wrapper">
         <div className="hero-content">
           <h1 className="hero-title">
-            Zyntex Infosoft Builds
-            <br />
-            <span>Intelligent Digital Solutions</span>
+            <span className="hero-title-line">Powering your business</span>
+            <span className="hero-title-with">with</span>
+            <span className="hero-title-highlight">Intelligent Digital Solutions</span>
           </h1>
 
           <p className="hero-subtitle">

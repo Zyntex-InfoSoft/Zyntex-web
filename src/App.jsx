@@ -17,8 +17,6 @@ function App() {
   const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowPreloader(false), 1600);
-
     // Initialize Lenis Smooth Scroll
     const lenis = new Lenis({
       duration: 1.2,
@@ -40,7 +38,6 @@ function App() {
 
     // cleanup
     return () => {
-      clearTimeout(timer);
       lenis.destroy();
     };
   }, []);
