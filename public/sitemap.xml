@@ -3,18 +3,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://zyntexinfosoft.tech/</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://zyntexinfosoft.tech/og-banner.jpg</image:loc>
-      <image:title>Zyntex Infosoft - Best IT Company in Bhavnagar and Ahmedabad</image:title>
-      <image:caption>Zyntex Infosoft - Leading web development, app development and IT services company in Gujarat, India</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://zyntexinfosoft.tech/logo1.jpg</image:loc>
-      <image:title>Zyntex Infosoft Logo</image:title>
-      <image:caption>Official logo of Zyntex Infosoft - Best IT Company in Bhavnagar</image:caption>
+      <image:loc>https://zyntexinfosoft.tech/logo.jpeg</image:loc>
+      <image:title>Zyntex Infosoft Official Logo</image:title>
+      <image:caption>Official brand logo of Zyntex Infosoft (Zyntex Tech), IT company in Gujarat, India</image:caption>
     </image:image>
   </url>
 </urlset>

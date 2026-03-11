@@ -4,6 +4,7 @@ Disallow: /static/js/*.map
 Disallow: /static/css/*.map
 
 Sitemap: https://zyntexinfosoft.tech/sitemap.xml
+Host: zyntexinfosoft.tech
 
 # Zyntex Infosoft - Best IT Company in Bhavnagar & Ahmedabad
 # https://zyntexinfosoft.tech

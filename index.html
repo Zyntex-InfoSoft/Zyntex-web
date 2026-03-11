@@ -13,23 +13,25 @@
     />
     <meta
       name="keywords"
-      content="Zyntex, Zyntex Infosoft, Zyntex Infosoft Tech, Zyntex Infosoft official website, best IT company in Bhavnagar, best IT company in Ahmedabad, web development company Bhavnagar, web development company Ahmedabad, IT company Gujarat, web development company Gujarat, IT services Bhavnagar, IT services Ahmedabad, mobile app development Bhavnagar, UI UX design company, SEO services Gujarat, digital marketing Gujarat, software company Bhavnagar, software company Ahmedabad, React development India, full stack development, custom website development, e-commerce development Gujarat, web design agency India, best web developer Bhavnagar, top IT company Gujarat"
+      content="Zyntex, Zyntex Infosoft, Zyntex Tech, Zyntex Infosoft Tech, Zyntex Infosoft official website, best IT company in Bhavnagar, best IT company in Ahmedabad, best IT company in Gujarat, best IT company in Gujrat, web development company Bhavnagar, web development company Ahmedabad, IT company Gujarat, web development company Gujarat, IT services Bhavnagar, IT services Ahmedabad, mobile app development Bhavnagar, UI UX design company, SEO services Gujarat, digital marketing Gujarat, software company Bhavnagar, software company Ahmedabad, React development India, full stack development, custom website development, e-commerce development Gujarat, web design agency India, best web developer Bhavnagar, top IT company Gujarat"
     />
     <meta name="author" content="Zyntex Infosoft" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="https://zyntexinfosoft.tech/" />
+    <link rel="alternate" href="https://zyntexinfosoft.tech/" hreflang="en-IN" />
 
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="UxPAJyVxwa1hPIeZ4NnLFHfqDCF8KH_tpcdjSQaPmgo" />
     <meta name="google-site-verification" content="_CXyXeK_NITz9cLqlJlsfX5lc15EH6rv7FLX90kF_5I" />
 
-    <!-- Favicon & Icons (replace logo1.jpg with a proper PNG logo with dark/transparent background) -->
-    <link rel="icon" type="image/jpeg" sizes="64x64" href="/logo1.jpg" />
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="/logo1.jpg" />
-    <link rel="icon" type="image/jpeg" sizes="16x16" href="/logo1.jpg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/logo1.jpg" />
-    <link rel="shortcut icon" type="image/jpeg" href="/logo1.jpg" />
+    <!-- Favicon & brand logo for search previews -->
+    <link rel="icon" type="image/jpeg" sizes="64x64" href="/logo.jpeg" />
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="/logo.jpeg" />
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="/logo.jpeg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.jpeg" />
+    <link rel="shortcut icon" type="image/jpeg" href="/logo.jpeg" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -40,9 +42,8 @@
       property="og:description"
       content="Zyntex Infosoft is a leading IT company in Bhavnagar and Ahmedabad, Gujarat. Professional web development, mobile app development, UI/UX design & digital marketing services."
     />
-    <meta property="og:image" content="https://zyntexinfosoft.tech/og-banner.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content="https://zyntexinfosoft.tech/logo.jpeg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="Zyntex Infosoft - Best IT Company in Bhavnagar & Ahmedabad, Gujarat" />
     <meta property="og:locale" content="en_IN" />
 
@@ -53,7 +54,7 @@
       name="twitter:description"
       content="Zyntex Infosoft - Leading IT company in Bhavnagar & Ahmedabad. Web development, mobile apps, UI/UX & digital marketing services."
     />
-    <meta name="twitter:image" content="https://zyntexinfosoft.tech/og-banner.jpg" />
+    <meta name="twitter:image" content="https://zyntexinfosoft.tech/logo.jpeg" />
     <meta name="twitter:image:alt" content="Zyntex Infosoft - IT Company in Gujarat" />
 
     <!-- Theme & App Meta -->
@@ -65,8 +66,8 @@
     <!-- Geo Tags for Local SEO -->
     <meta name="geo.region" content="IN-GJ" />
     <meta name="geo.placename" content="Bhavnagar, Gujarat, India" />
-    <meta name="geo.position" content="21.7645;72.1519" />
-    <meta name="ICBM" content="21.7645, 72.1519" />
+    {% comment %} <meta name="geo.position" content="21.7645;72.1519" />
+    <meta name="ICBM" content="21.7645, 72.1519" /> {% endcomment %}
 
     <!-- JSON-LD: Organization -->
     <script type="application/ld+json">
@@ -75,15 +76,20 @@
       "@type": "Organization",
       "@id": "https://zyntexinfosoft.tech/#organization",
       "name": "Zyntex Infosoft",
-      "alternateName": ["Zyntex", "Zyntex Info", "Zyntex Infosoft Tech", "Zyntex Infosoft Company"],
+      "alternateName": ["Zyntex", "Zyntex Tech", "Zyntex Info", "Zyntex Infosoft Tech", "Zyntex Infosoft Company"],
       "url": "https://zyntexinfosoft.tech",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://zyntexinfosoft.tech/logo1.jpg",
+        "url": "https://zyntexinfosoft.tech/logo.jpeg",
         "width": 512,
         "height": 512
       },
-      "image": "https://zyntexinfosoft.tech/og-banner.jpg",
+      "image": "https://zyntexinfosoft.tech/logo.jpeg",
+      "brand": {
+        "@type": "Brand",
+        "name": "Zyntex",
+        "alternateName": "Zyntex Tech"
+      },
       "description": "Zyntex Infosoft is a leading IT company based in Bhavnagar and Ahmedabad, Gujarat, India. We specialize in web development, mobile app development, UI/UX design, SEO, and digital marketing.",
       "slogan": "Building Digital Excellence",
       "email": "zyntexinfosoft@gmail.com",
@@ -168,10 +174,15 @@
       "@type": "WebSite",
       "@id": "https://zyntexinfosoft.tech/#website",
       "name": "Zyntex Infosoft",
-      "alternateName": ["Zyntex", "Zyntex Infosoft Tech"],
+      "alternateName": ["Zyntex", "Zyntex Tech", "Zyntex Infosoft Tech"],
       "url": "https://zyntexinfosoft.tech",
       "publisher": {
         "@id": "https://zyntexinfosoft.tech/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://zyntexinfosoft.tech/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
       },
       "inLanguage": "en-IN"
     }
@@ -194,7 +205,7 @@
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://zyntexinfosoft.tech/og-banner.jpg"
+        "url": "https://zyntexinfosoft.tech/logo.jpeg"
       },
       "inLanguage": "en-IN"
     }
@@ -207,9 +218,9 @@
       "@type": "ProfessionalService",
       "@id": "https://zyntexinfosoft.tech/#localbusiness",
       "name": "Zyntex Infosoft",
-      "alternateName": ["Zyntex", "Zyntex Infosoft Tech"],
-      "image": "https://zyntexinfosoft.tech/og-banner.jpg",
-      "logo": "https://zyntexinfosoft.tech/logo1.jpg",
+      "alternateName": ["Zyntex", "Zyntex Tech", "Zyntex Infosoft Tech"],
+      "image": "https://zyntexinfosoft.tech/logo.jpeg",
+      "logo": "https://zyntexinfosoft.tech/logo.jpeg",
       "url": "https://zyntexinfosoft.tech",
       "description": "Zyntex Infosoft is the best IT company in Bhavnagar and Ahmedabad offering web development, app development, UI/UX design, SEO, and digital marketing services in Gujarat, India.",
       "email": "zyntexinfosoft@gmail.com",
@@ -351,7 +362,7 @@
 
     <noscript>
       <h1>Zyntex Infosoft - Best IT Company in Bhavnagar & Ahmedabad</h1>
-      <p>Zyntex Infosoft is a leading web development and IT solutions company in Bhavnagar and Ahmedabad, Gujarat, India. We offer web development, mobile app development, UI/UX design, SEO, and digital marketing services.</p>
+      <p>Zyntex Infosoft (also known as Zyntex Tech) is a leading web development and IT solutions company in Bhavnagar and Ahmedabad, Gujarat, India. We offer web development, mobile app development, UI/UX design, SEO, and digital marketing services.</p>
       <p>Contact us at zyntexinfosoft@gmail.com or call +91 96647 47560.</p>
     </noscript>
 
